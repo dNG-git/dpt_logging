@@ -26,6 +26,7 @@ import sys
 import traceback
 
 from dpt_runtime.binary import Binary
+from dpt_runtime.environment import Environment
 from dpt_runtime.not_implemented_exception import NotImplementedException
 from dpt_runtime.traced_exception import TracedException
 from dpt_runtime.value_exception import ValueException
@@ -60,7 +61,7 @@ Constructor __init__(AbstractLogHandler)
 :since: v1.0.0
         """
 
-        self._ident = (Binary.str(os.environ['dNGapp']) if ("dNGapp" in os.environ) else "python")
+        self._ident = Environment.get_application_short_name()
         """
 Log identifier
         """
