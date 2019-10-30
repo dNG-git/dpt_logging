@@ -45,6 +45,11 @@ The abstract log handler provides common variables and methods.
              Mozilla Public License, v. 2.0
     """
 
+    __slots__ = [ "__weakref__", "_ident", "level", "level_map", "log_handler", "log_thread_id", "_version" ]
+    """
+python.org: __slots__ reserves space for the declared variables and prevents
+the automatic creation of __dict__ and __weakref__ for each instance.
+    """
     _weakref_instance = None
     """
 LogHandler weakref instance
