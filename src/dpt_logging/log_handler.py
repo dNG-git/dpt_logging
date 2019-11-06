@@ -127,7 +127,9 @@ Preserve the amount of files
             if (_api_type == _API_PYTHON):
                 logger_root = logging.getLogger()
 
-                if ((hasattr(logger_root, "hasHandlers") and logger_root.hasHandlers()) or (len(logger_root.handlers) > 0)): self.logger.addHandler(self.log_handler)
+                if ((hasattr(logger_root, "hasHandlers") and logger_root.hasHandlers())
+                    or len(logger_root.handlers) > 0
+                   ): self.logger.addHandler(self.log_handler)
                 else: logger_root.addHandler(self.log_handler)
             else: self.logger.addHandler(self.log_handler)
 
@@ -182,7 +184,7 @@ Info message method
         # pylint: disable=protected-access
 
         level = self._get_implementation_level(kwargs.get("context", "global"))
-        if (level in ( DEBUG, INFO)): self._write(INFO, data, *args)
+        if (level in ( DEBUG, INFO )): self._write(INFO, data, *args)
     #
 
     def _init_handler(self):
@@ -259,7 +261,7 @@ Warning message method
         # pylint: disable=protected-access
 
         level = self._get_implementation_level(kwargs.get("context", "global"))
-        if (level not in ( ERROR, NOTSET)): self._write(WARNING, data, *args)
+        if (level not in ( ERROR, NOTSET )): self._write(WARNING, data, *args)
     #
 
     def _write(self, level, data, *args):
