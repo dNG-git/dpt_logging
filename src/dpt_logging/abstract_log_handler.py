@@ -20,7 +20,6 @@ https://www.direct-netware.de/redirect?licenses;mpl2
 from threading import current_thread
 from weakref import ref
 import logging
-import os
 import re
 import sys
 import traceback
@@ -311,6 +310,8 @@ Get the log handler singleton.
 :return: (object) Log handler instance on success
 :since:  v1.0.0
         """
+
+        # pylint: disable=not-callable
 
         _return = None
 

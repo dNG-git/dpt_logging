@@ -17,6 +17,8 @@ https://www.direct-netware.de/redirect?licenses;mpl2
 #echo(__FILEPATH__)#
 """
 
+# pylint: disable=invalid-name
+
 from os import path
 from sys import stderr
 from time import strftime
