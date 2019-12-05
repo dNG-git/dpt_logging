@@ -38,7 +38,8 @@ Python log handlers
 """
 
 try:
-    from logging import StreamHandler, CRITICAL, DEBUG, ERROR, INFO, NOTSET, WARNING
+    from logging import NullHandler, StreamHandler, CRITICAL, DEBUG, ERROR, INFO, NOTSET, WARNING
+    from logging.config import dictConfig
     from logging.handlers import RotatingFileHandler
     import logging
 
@@ -129,11 +130,17 @@ Preserve the amount of files
             if (_api_type == _API_PYTHON):
                 logger_root = logging.getLogger()
 
-                if ((hasattr(logger_root, "hasHandlers") and logger_root.hasHandlers())
-                    or len(logger_root.handlers) > 0
-                   ): self.logger.addHandler(self.log_handler)
-                else: logger_root.addHandler(self.log_handler)
-            else: self.logger.addHandler(self.log_handler)
+                if ((hasattr(logger_root, "hasHandlers") and (not logger_root.hasHandlers())) or len(logger_root.handlers) < 1):
+                    if (Settings.get("global_log_initialize_root", True)): logger_root.addHandler(self.log_handler)
+                    else: logger_root.addHandler(NullHandler())
+                #
+
+                self.logger.addHandler(self.log_handler)
+                self.logger.propagate = False
+            else:
+                self.logger.addHandler(self.log_handler)
+                self.logger.setUseParentHandlers(False)
+            #
 
             LogHandler._log_handler = self.log_handler
         else: self.log_handler = LogHandler._log_handler
