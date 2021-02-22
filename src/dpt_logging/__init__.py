@@ -17,5 +17,6 @@ https://www.direct-netware.de/redirect?licenses;mpl2
 #echo(__FILEPATH__)#
 """
 
+from .exception_log_trap import ExceptionLogTrap
 from .log_handler import LogHandler
 from .log_line import LogLine
