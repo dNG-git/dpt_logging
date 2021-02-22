@@ -24,12 +24,9 @@ import re
 import sys
 import traceback
 
-from dpt_runtime.binary import Binary
-from dpt_runtime.environment import Environment
-from dpt_runtime.not_implemented_exception import NotImplementedException
-from dpt_runtime.traced_exception import TracedException
-from dpt_runtime.value_exception import ValueException
-from dpt_threading.instance_lock import InstanceLock
+from dpt_runtime import Binary, Environment
+from dpt_runtime.exceptions import NotImplementedException, TracedException, ValueException
+from dpt_threading import InstanceLock
 
 class AbstractLogHandler(object):
     """

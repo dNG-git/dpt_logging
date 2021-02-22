@@ -17,7 +17,7 @@ https://www.direct-netware.de/redirect?licenses;mpl2
 #echo(__FILEPATH__)#
 """
 
-from dpt_module_loader.named_class_loader import NamedClassLoader
+from dpt_module_loader import NamedClassLoader
 
 class LogLine(object):
     """
