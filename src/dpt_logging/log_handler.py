@@ -24,7 +24,7 @@ from sys import stderr
 from time import strftime
 import os
 
-from dpt_settings import Settings
+from dpt_runtime import Settings
 
 from .abstract_log_handler import AbstractLogHandler
 
