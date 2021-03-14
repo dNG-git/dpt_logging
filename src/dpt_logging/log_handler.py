@@ -69,7 +69,7 @@ class LogHandler(AbstractLogHandler):
              Mozilla Public License, v. 2.0
     """
 
-    __slots__ = [ "logger", "log_file_path_name", "log_format_datetime", "log_file_size_max", "log_file_rotates" ]
+    __slots__ = ( "logger", "log_file_path_name", "log_format_datetime", "log_file_size_max", "log_file_rotates" )
     """
 python.org: __slots__ reserves space for the declared variables and prevents
 the automatic creation of __dict__ and __weakref__ for each instance.
